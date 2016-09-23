@@ -1,82 +1,104 @@
-# JavaScript-Applications
-JavaScript Applications Course Repository
+# JavaScript Applications: Teamwork Assignment
 
-Repository for the course [JavaScript Applications](https://telerikacademy.com/Courses/Courses/Details/350) at [Telerik Academy](https://telerikacademy.com)
+This document describes the teamwork assignment for Telerik Academy students in "JavaScript Applications" course
 
-The **JavaScript Applications** course introduces first steps for build web front-end application, using a back-end server (Node.js/Business clouds/etc...). The topics covered include HTTP, AJAX (both native and with frameworks), asynchronous paradigms using callbacks and promises and more...
+## Project Description
 
-## Course Program
+Design and implement an **object-oriented web SPA application** by choice.
 
-### [00. Course Introduction](/Topics/00. Course Introduction)
+It could be a simple game , component library , business application or any other
+- You are absolutely free to choose the topic of your work
+- Sample applications:
+  - Snake
+  - Chess
+  - Backgammon
+  - Minesweeper
+  - Tetris
+  - Xonix
+  - Supermario
+  - Components library(windows, buttons, text boxes, menus, etc.)
+  - Book store
+  - Auction
+  - Movie rental
+  - Bug tracker
+  - Knowledge management system
+  - E-library
+  - Text editor
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/> Slides](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/Topics/00.%20Course%20Introduction/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/00. Course Introduction/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15"> Tasks](/Topics/00. Course Introduction/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/00. Course Introduction/VIDEOS.md)
+## General Requirements
+Please define and implement the following assets in your project:
+- Use [jQuery](https://jquery.com/)
+- Implement OOP design
+  - Application logic using objects, modules and data hiding
+    - Use ES2015 classes and mixins
+    - Both Prototypal and classical inheritances are Ok
+  - At least 3 modules
+  - At least 7 types (classes) of objects
+- Unit tests
+  - Using [Mocha](http://mochajs.org/), [Chai](http://chaijs.com/) and [SinonJS](http://sinonjs.org/)
+- Implement a UI for your application
+  - Use KendoUI, jQueryUI or implement your own UI logic
+- Use some kind of web data storage, one of the following is Ok
+  - Your backend with Node.js, PHP, ASP.NET, Django, Ruby on Rails, Spring, etc...
+  - Telerik Backend Services
+  - Firebase
+  - Microsoft Mobile App Services
+- Use some kind of local storage, one of the following is Ok:
+  - `localStorage`
+  - `sessionStorage`
+- Use [Twitter Bootstrap](http://getbootstrap.com/)
+  - Research and use Bootstrap for your application
+  - Make the application responsive for different screens and resolutions
+- At least one third-party API to share something from your application
+  - Samples:
+    - Share status to Facebook, Google+, Twitter, etc...
+    - Upload images to Facebook, Flickr, Instagram
+-   **The application must work in the latest versions of the browsers: Google Chrome, Mozilla Firefox, MS Edge, Internet Explorer 10/11, Opera and Apple Safari**
 
-### [01. Promises and asynchronous programming]()
+##  Additional Requirements
+Follow the best practices for producing high-quality code:
+-   **Correct naming**
+-   **Data encapsulation**
+  -     Use OOP and modules
+-   **Strong cohesion** and **loose coupling**
+-   Use **GIT** as a source control system
+-   Host it on [http://github.com](http://github.com)
+-   Deploy your application on a cloud server of your choice - Heroku, Firebase, Amazon S3, Microsoft Azure
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/> Slides](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/Topics/01.%20Promises%20and%20asynchronous%20programming/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/01. Promises and asynchronous programming/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15"> Tasks](/Topics/01. Promises and asynchronous programming/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/01. Promises and asynchronous programming/VIDEOS.md)
+##  Optional Requirements
+If you have a chance, time and a suitable situation, you might add some of the following to your project:
+-   Backward compatibility (make the application usable on browsers like IE8, IE7 and IE6)
+-   Integration tests
+-   Minify your application source - minified and concatanated javascript and css files
+-   Use a module loader of your choice - SystemJS, RequireJS, etc, or roll up your own loader
+-   Use semantic tags and semantic html
+-   Usage of a structural JavaScript framework:
+  -     AngularJS, KendoUI, Knockout.js, Backbone.js, etc...
 
-### [02. HTTP and AJAX]()
+##  Non-required Work
+-   Completely finished project is not obligatory required. It will not be a big problem if your project is not completely finished or is not working greatly
+  -     This team work project is for educational purpose
+  -     Its main purpose it to experience using graphics, DOM manipulation and OOP in a real-world-like project and to get some experience in team working and team collaboration with a source control system.
+-   Implementation of server-side logic with ASP.NET, PHP, Java or Node.js
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/> Slides](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/Topics/02.%20HTTP%20and%20AJAX/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/02. HTTP and AJAX/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15"> Tasks](/Topics/02. HTTP and AJAX/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/02. HTTP and AJAX/VIDEOS.md)
+##  Deliverables
 
-### [03. Consuming Web Services]()
+- **Record** a short video **showcasing your application**
+- **Register** your application at [Telerik Academy Showcase System](http://best.telerikacademy.com)
+  - Provide a link for the github repository of your application
+  - Provide a link to the video
+  - Host your application on a server, and provide a link
+    - You can host your application on http://appharbor.com, http://heroku.com or just use the http://rawgit.com
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/> Slides](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/Topics/03. Consuming Web Services/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/03. Consuming Web Services/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15"> Tasks](/Topics/03. Consuming Web Services/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/03. Consuming Web Services/VIDEOS.md)
+##  Public Project Defense
+Each team will have to deliver a public defense of its work to the other students and trainers. You will have only 10 minutes for the following:
+- Demonstrate the application (very shortly)
+- Show the recorder video
+- Show the source code
+- Show the commits logs to confirm that team member have contributed.
+- Optionally you might prepare a presentation (3-4 slides)
 
-### [04. Module loaders]()
+Please be **strict in timing!** Be well prepared for presenting maximum of your work for minimum time. Bring your own laptop. Test it preliminary with the multimedia projector. Open the project assets beforehand to save time. You have 10 minutes, no more
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/> Slides](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/Topics/04. Module loaders/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/04. Module loaders/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15"> Tasks](/Topics/04. Module loaders/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/04. Module loaders/VIDEOS.md)
-
-### [05. Routing]()
-
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/> Slides](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/Topics/05. Routing/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/05. Routing/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15"> Tasks](/Topics/05. Routing/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/05. Routing/VIDEOS.md)
-
-### [06. Handlebars]()
-
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/> Slides](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/Topics/06. Handlebars/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/06. Handlebars/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15"> Tasks](/Topics/06. Handlebars/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/06. Handlebars/VIDEOS.md)
-
-### [07. Web Storages]()
-
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/> Slides](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/Topics/07. Web Storages/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/07. Web Storages/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15"> Tasks](/Topics/07. Web Storages/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/07. Web Storages/VIDEOS.md)
-
-### [08. Unit Testing Basics]()
-
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/> Slides](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/Topics/08. Unit Testing Basics/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/08. Unit Testing Basics/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15"> Tasks](/Topics/08. Unit Testing Basics/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/08. Unit Testing Basics/VIDEOS.md)
-
-### [09. Unit testing - Spies and Mocks with Sinon]()
-
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/> Slides](https://rawgit.com/TelerikAcademy/JavaScript-Applications/master/Topics/09. Unit testing - Spies and Mocks with Sinon/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/09. Unit testing - Spies and Mocks with Sinon/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15"> Tasks](/Topics/09. Unit testing - Spies and Mocks with Sinon/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/09. Unit testing - Spies and Mocks with Sinon/VIDEOS.md)
-
-<!--
-## Preparing the local machine for Unit testing with Mocha and Chai
-
-* Install [JavaScript I/O](https://iojs.org/en/index.html "JavaScript I/O")
-    * Try if it is working by typing in CMD/Terminal `$ iojs -v` (should produce result)
-
-## Preparing for the tests for each homework
-
-*   Checkout the repository for the particular homework
-*   Open CMD/Terminal and navigate to the checked-out repository with the homework
-*   Run `npm install` in CMD/Terminal
-    *   A folder `node_modules` should appear
-*   You are ready to run the tests
-
-## Running the tests
-
-*   Navigate to the folder of the particular homework in CMD/Terminal
-*   Requirements:
-    *   JavaScript files must be called task-1.js, task-2.js etc..
-    *   Each .js file must contain `module.exports=[name of the object/function]`
-*   Run `npm test`
-    *   Test results should appear on the CMD/Terminal
-
-## Upload in [BGCoder.com](http://bgcoder.com/)
-
-*   Go to the specific homework
-*   Select the task you will be sending
-*   Wrap your result in:
-
-        function solve() {
-            return [your solution object/function];
-        }
--->
+##  Give Feedback about Your Teammates
+You will be invited to provide feedback about all your teammates, their attitude to this project, their technical skills, their team working skills, their contribution to the project, etc. The feedback is important part of the project evaluation so take it seriously and be honest
