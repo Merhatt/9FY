@@ -1,0 +1,18 @@
+{
+  "name": "9fy",
+  "description": "This document describes the teamwork assignment for Telerik Academy students in \"JavaScript Applications\" course",
+  "main": "index.js",
+  "authors": [
+    "joronator"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Merhatt/9FY",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ]
+}

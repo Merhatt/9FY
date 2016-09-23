@@ -1,0 +1,19 @@
+{
+  "name": "9fy",
+  "version": "1.0.0",
+  "description": "This document describes the teamwork assignment for Telerik Academy students in \"JavaScript Applications\" course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Merhatt/9FY.git"
+  },
+  "author": "joronator",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Merhatt/9FY/issues"
+  },
+  "homepage": "https://github.com/Merhatt/9FY#readme"
+}
