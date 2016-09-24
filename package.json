@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Merhatt/9FY/issues"
   },
-  "homepage": "https://github.com/Merhatt/9FY#readme"
+  "homepage": "https://github.com/Merhatt/9FY#readme",
+  "dependencies": {
+    "systemjs": "^0.19.38",
+    "systemjs-plugin-babel": "0.0.15"
+  }
 }
