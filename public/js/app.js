@@ -7,7 +7,9 @@ const content = '#content';
 
 var sammyApp = new Sammy(content, function () {
     
-    this.get('#/', userAction.home)
+    this.get('#/', userAction.home);
+    this.get('#/register', userAction.register);
+    this.get('#/login', userAction.login);
 
 })
 

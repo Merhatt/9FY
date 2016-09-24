@@ -11,6 +11,20 @@ class UserAction{
             content.html(template)
         })
     }
+
+    register(context){
+        templateGetter.get('register')
+        .then(function (template) {
+            content.html(template);
+        })
+    }
+
+    login(context){
+        templateGetter.get('login')
+        .then(function (template) {
+            content.html(template)
+        })
+    }
 }
 let userAction = new UserAction()
 export{userAction};
