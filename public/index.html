@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <title>9fy</title>
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="./bower_components/jquery/dist/jquery.js"></script>
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 
 <body>
     <header class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a href="#/home" class="navbar-brand">9fy</a>
+                <a href="#/" class="navbar-brand">9fy</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
@@ -24,16 +26,31 @@
                     <li>
                         <a href="#/fresh">Fresh</a>
                     </li>
+                    <li>
+
+                    </li>
+                    <li>
+                        <input type="text" class="form-control input-lg" placeholder="Search...">
+                    </li>
+
                 </ul>
+
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes" aria-expanded="false">User<span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="" id="themes" aria-expanded="false">User<span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="themes">
+                            //implement differenct cases if logged in or not
+
+                        </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </header>
+    <div id="content"></div>
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script src="./systemjs-config.js"></script>
 </body>
 
 </html>
