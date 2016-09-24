@@ -1,15 +1,15 @@
 /// <reference path="../../../jquery.d.ts"/>
-import hadlebars from 'hadlebars'
+import handlebars from 'handlebars'
 import 'jquery';
 
 function getTemplate(templateName) {
-    let url = `../../../templates/${templateName}.hadlebars`;
+    let url = `../../../templates/${templateName}.handlebars`;
 
     var promise = new Promise((resolve, reject)=>{
         $.ajax({
             url: url,
             success: function (data) {
-                let template = hadlebars.compile(data);
+                let template = handlebars.compile(data);
                 resolve(template);
             },
             error: function (err) {

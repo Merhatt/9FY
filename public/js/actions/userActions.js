@@ -1,6 +1,6 @@
 /// <reference path="../../../jquery.d.ts"/>
 import 'jquery'
-import {templateGetter} from '../utils/getTemplates'
+import {templateGetter} from 'getTemplates'
 
 const content = $('#content');
 

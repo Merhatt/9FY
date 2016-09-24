@@ -1,8 +1,8 @@
 /// <reference path="../../jquery.d.ts"/>
 import Sammy from 'sammy'
 import 'jquery';
-import {templateGetter} from './utils/getTemplates';
-import {userAction} from './actions/userActions';
+import {templateGetter} from 'getTemplates';
+import {userAction} from 'userActions';
 
 const content = '#content';
 
@@ -13,7 +13,7 @@ var sammyApp = new Sammy(content, function () {
 })
 
 
-sammyApp.run('#/')
 $(function () {
+    console.log('daiba')
     sammyApp.run('#/')
 })
