@@ -9,9 +9,9 @@ SystemJS.config({
         'handlebars': '/public/bower_components/handlebars/handlebars.js',
         'main': '/public/js/app.js',
         'getTemplates': '/public/js/utils/getTemplates.js',
-        'userActions':  '/public/js/actions/userActions.js'
-       
+        'userActions': '/public/js/actions/userActions.js',
+        'spotifyApi': './public/js/spotify-api/spotify-api.js'
     }
 });
 
-System.import('main')
+System.import('main');

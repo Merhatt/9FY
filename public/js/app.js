@@ -1,12 +1,12 @@
 /// <reference path="../../jquery.d.ts"/>
-import Sammy from 'sammy'
+import Sammy from 'sammy';
 import 'jquery';
-import {userAction} from 'userActions';
+import { userAction } from 'userActions';
 
 const content = '#content';
 
-var sammyApp = new Sammy(content, function () {
-    
+var sammyApp = new Sammy(content, function() {
+
     this.get('#/', userAction.home);
     this.get('#/register', userAction.register);
     this.get('#/login', userAction.login);
@@ -14,6 +14,6 @@ var sammyApp = new Sammy(content, function () {
 })
 
 
-$(function () {
-    sammyApp.run('#/')
-})
+$(function() {
+    sammyApp.run('#/');
+});

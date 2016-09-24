@@ -40,4 +40,6 @@ class getMusic {
     }
 }
 
+
+export { getMusic };
 //getMusic.searchArtist('krisko').then((data) => { console.log(data); });
