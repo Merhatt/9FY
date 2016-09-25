@@ -30,7 +30,8 @@ class UserAction {
                     .then(function (res) {
                         context.redirect('#/login')
                     }).catch(function (err) {
-                        alert(JSON.stringify(err))
+                        var error = JSON.parse(err.responseText)
+                        alert(error.description)
                     })
 
                 })
