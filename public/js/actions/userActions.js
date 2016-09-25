@@ -43,6 +43,29 @@ class UserAction {
             .then(function(template) {
                 content.html(template)
             })
+            .then(function () {
+                $('#btn-login').on('click', function () {
+                    let username = $('#login-username').val();
+                    let password = $('#login-password').val();
+                    let logUser = {username: username, password: password};
+
+                    Data.login(logUser)
+                    .then(function (success) {
+                        localStorage.setItem('username', success.username);
+                        localStorage.setItem('userId', success._id);
+                        localStorage.setItem('authKey', success._kmd.authtoken);                        
+                    })
+                    .then(function(){
+                        context.redirect('#/fresh')
+                        console.log(localStorage)
+                    })
+                    .catch(function (err) {
+                        var error = JSON.parse(err.responseText)
+                        alert(error.description)
+                    })
+
+                })
+            })
     }
 }
 let userAction = new UserAction();
