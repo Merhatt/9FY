@@ -10,7 +10,9 @@ SystemJS.config({
         'main': '/public/js/app.js',
         'getTemplates': '/public/js/utils/getTemplates.js',
         'userActions': '/public/js/actions/userActions.js',
-        'spotifyApi': './public/js/spotify-api/spotify-api.js'
+        'spotifyApi': './public/js/spotify-api/spotify-api.js',
+        'requester': '/public/js/utils/requester.js',
+        'constants': '/constants.js'
     }
 });
 
