@@ -10,7 +10,7 @@ var sammyApp = new Sammy(content, function() {
     this.get('#/', userAction.home);
     this.get('#/register', userAction.register);
     this.get('#/login', userAction.login);
-
+    this.get('#/logout', userAction.logout)
 })
 
 

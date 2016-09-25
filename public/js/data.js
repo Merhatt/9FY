@@ -26,24 +26,26 @@ class Data {
         let url = `https://baas.kinvey.com/user/${KINVEY.appId}/login`;
         let authorization = btoa(`${KINVEY.appId}:${KINVEY.appSecret}`);
 
-         let headers = {
+        let headers = {
             'Authorization': `Basic ${authorization}`,
             'ContentType': 'application/json'
         };
 
-        return Requester.post(url,{
+        return Requester.post(url, {
             headers: headers,
             data: user
         })
     }
 
-    static getCurrentUser(){
+
+
+    static getCurrentUser() {
         var username = localStorage.getItem('username');
-        if(!username){
+        if (!username) {
             return null;
         }
 
         return username;
-}
+    }
 }
 export {Data};
