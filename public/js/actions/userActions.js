@@ -1,6 +1,7 @@
 /// <reference path="../../../jquery.d.ts"/>
 import 'jquery'
 import { templateGetter } from 'getTemplates'
+import {Data} from 'data'
 
 const content = $('#content');
 
@@ -24,8 +25,14 @@ class UserAction {
                     let email = $('reg-email').val();
 
                     let newUser = {username, password, email};
-
                     
+                    Data.register(newUser)
+                    .then(function (res) {
+                        context.redirect('#/login')
+                    }).catch(function (err) {
+                        alert(JSON.stringify(err))
+                    })
+
                 })
             })
     }
