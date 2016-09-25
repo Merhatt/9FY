@@ -1,0 +1,26 @@
+.player {
+    background-color: black;
+    width: 400px; 
+    height: 100px;
+    padding: 10px;
+}
+#nowPlaying {
+    display: inline;
+    color: pink;
+}
+img#poster {
+    width: 80px;
+    height: 80px;
+    float: left;      
+}
+.track-name{
+    padding-left: 10px;
+    font-size: 20px;
+    }
+.artist-name {
+    padding-left: 10px;
+    font-size: 15px;
+}
+#artist-info a {
+     margin-left: 10px;
+}
