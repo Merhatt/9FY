@@ -1,24 +1,30 @@
-class getMusic {
-    static freshMusic() {
-        $.ajax({
-            type: 'GET',
-            url: 'https://accounts.spotify.com/authorize/?client_id=29aa5ede1ed34306ba232a64f1ff10c1&response_type=code&redirect_uri=http://127.0.0.1:8080',
-            success: function(data) {
-                console.log('succes');
-            },
-            error: function(err) {}
+class spotify {
+    static _getSecretToken() {
+        return new Promise((resolve, reject) => {
+            //Implement it
+            let token;
+
+            resolve(token);
         });
+    }
+
+    static freshMusic() {
         let url = 'https://api.spotify.com/v1/browse/new-releases';
         return new Promise((resolve, reject) => {
-            $.ajax({
-                type: 'GET',
-                url: url,
-                success: function(data) {
-                    resolve(data);
-                },
-                error: function(err) {
-                    reject(err);
-                }
+            _getSecretToken.then((token) => {
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader("Authorization", "Basic " + token);
+                    },
+                    success: function(data) {
+                        resolve(data);
+                    },
+                    error: function(err) {
+                        reject(err);
+                    }
+                });
             });
         });
     }
@@ -41,5 +47,4 @@ class getMusic {
 }
 
 
-export { getMusic };
-//getMusic.searchArtist('krisko').then((data) => { console.log(data); });
+export { spotify };
