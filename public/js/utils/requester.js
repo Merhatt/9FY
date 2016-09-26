@@ -7,9 +7,9 @@ function send(method, url, options) {
     let headers = options.headers || {};
     let data = options.data || undefined;
 
-    let promise = new Promise((resolve, reject)=> {
+    let promise = new Promise((resolve, reject) => {
         $.ajax({
-            url : url,
+            url: url,
             method: method,
             contentType: 'application/json',
             headers: headers,
@@ -20,23 +20,25 @@ function send(method, url, options) {
             error: function (err) {
                 reject(err)
             }
-            
+
         })
+        console.log(options);
+
     })
 
     return promise;
 }
 
-class Requester{
-   static get(url, options){
+class Requester {
+    static get(url, options) {
         return send('GET', url, options)
     }
 
-   static post(url, options ){
+    static post(url, options) {
         return send('POST', url, options)
     }
 
-  static  put(url, options){
+    static put(url, options) {
         return send('PUT', url, options)
     }
 }

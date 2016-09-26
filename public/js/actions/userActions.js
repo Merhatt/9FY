@@ -36,7 +36,7 @@ class UserAction {
                 $('#btn-signup').on('click', function() {
                     let username = $('#reg-username').val();
                     let password = $('#reg-password').val();
-                    let email = $('reg-email').val();
+                    let email = $('#reg-email').val();
 
                     let newUser = { username, password, email };
 
