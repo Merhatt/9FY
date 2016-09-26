@@ -17,7 +17,3 @@ var sammyApp = new Sammy(content, function() {
 $(function() {
     sammyApp.run('#/');
 });
-
-import { spotify } from 'spotify';
-
-spotify._getSecretToken().then(console.log);
