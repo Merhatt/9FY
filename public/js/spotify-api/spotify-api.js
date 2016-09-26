@@ -11,21 +11,22 @@ class spotify {
     static freshMusic() {
         let url = 'https://api.spotify.com/v1/browse/new-releases';
         return new Promise((resolve, reject) => {
-            spotify._getSecretToken.then((token) => {
-                $.ajax({
-                    type: 'GET',
-                    url: url,
-                    beforeSend: function(xhr) {
-                        xhr.setRequestHeader("Authorization", "Bearer " + token);
-                    },
-                    success: function(data) {
-                        resolve(data);
-                    },
-                    error: function(err) {
-                        reject(err);
-                    }
+            spotify._getSecretToken()
+                .then((token) => {
+                    $.ajax({
+                        type: 'GET',
+                        url: url,
+                        beforeSend: function(xhr) {
+                            xhr.setRequestHeader("Authorization", "Bearer " + token);
+                        },
+                        success: function(data) {
+                            resolve(data);
+                        },
+                        error: function(err) {
+                            reject(err);
+                        }
+                    });
                 });
-            });
         });
     }
 

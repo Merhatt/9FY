@@ -11,7 +11,7 @@ var sammyApp = new Sammy(content, function() {
     this.get('#/register', userAction.register);
     this.get('#/login', userAction.login);
     this.get('#/logout', userAction.logout)
-})
+});
 
 
 $(function() {
@@ -19,5 +19,3 @@ $(function() {
 });
 
 import { spotify } from 'spotify';
-
-spotify.freshMusic().then((data) => console.log(data));
