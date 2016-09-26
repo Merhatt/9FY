@@ -11,7 +11,7 @@ class spotify {
     static freshMusic() {
         let url = 'https://api.spotify.com/v1/browse/new-releases';
         return new Promise((resolve, reject) => {
-            _getSecretToken.then((token) => {
+            spotify._getSecretToken.then((token) => {
                 $.ajax({
                     type: 'GET',
                     url: url,

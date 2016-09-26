@@ -17,3 +17,7 @@ var sammyApp = new Sammy(content, function() {
 $(function() {
     sammyApp.run('#/');
 });
+
+import { spotify } from 'spotify';
+
+spotify.freshMusic().then((data) => console.log(data));
