@@ -89,7 +89,11 @@ class UserAction {
 
     logout(context) {
 
-        localStorage.clear();
+        localStorage.removeItem('authKey');
+        localStorage.removeItem('username');
+        localStorage.removeItem('userId');
+        console.log(localStorage)
+        
         context.redirect('#/')
 
     }
