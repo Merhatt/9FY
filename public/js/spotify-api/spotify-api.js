@@ -16,7 +16,7 @@ class spotify {
                     type: 'GET',
                     url: url,
                     beforeSend: function(xhr) {
-                        xhr.setRequestHeader("Authorization", "Basic " + token);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
                     },
                     success: function(data) {
                         resolve(data);
