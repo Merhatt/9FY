@@ -11,4 +11,4 @@ const FMA = {
     key: '73V9SPTVQ8WCZTQ2'
 }
 
-export {KINVEY, NEWS, FMA}
+export { KINVEY, NEWS, FMA };
