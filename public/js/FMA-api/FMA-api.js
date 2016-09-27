@@ -34,6 +34,23 @@ class FreeMusicArchive {
             });
         });
     }
+
+    static searchArtistByName(name, maxResultCount) {
+        return new Promise((resolve, reject) => {
+            let url = 'https://freemusicarchive.org/api/trackSearch?q=' + name + '&limit=' + maxResultCount;
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function(data) {
+                    resolve(JSON.parse(data));
+                },
+                error: function(err) {
+                    reject(err);
+                }
+            });
+        });
+    }
 }
 
 

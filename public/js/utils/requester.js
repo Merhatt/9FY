@@ -1,5 +1,5 @@
 /// <reference path="../../../jquery.d.ts"/>
-import 'jquery'
+import 'jquery';
 
 function send(method, url, options) {
     options = options || {};
@@ -14,15 +14,15 @@ function send(method, url, options) {
             contentType: 'application/json',
             headers: headers,
             data: JSON.stringify(data),
-            success: function (res) {
+            success: function(res) {
                 resolve(res)
             },
-            error: function (err) {
+            error: function(err) {
                 reject(err)
             }
 
         })
-        
+
 
     })
 
@@ -43,4 +43,4 @@ class Requester {
     }
 }
 
-export {Requester};
+export { Requester };
