@@ -13,7 +13,8 @@ SystemJS.config({
         'spotify': './public/js/spotify-api/spotify-api.js',
         'requester': '/public/js/utils/requester.js',
         'constants': '/constants.js',
-        'data': '/public/js/data.js'
+        'data': '/public/js/data.js',
+        'toastr': '/public/bower_components/toastr/toastr.js'
     }
 });
 

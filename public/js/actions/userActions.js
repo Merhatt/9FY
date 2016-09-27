@@ -2,6 +2,7 @@
 import 'jquery'
 import { templateGetter } from 'getTemplates'
 import { Data } from 'data';
+import toastr from 'toastr'
 
 const content = $('#content');
 const userDropdown = $('#user-dropdown')
@@ -42,10 +43,11 @@ class UserAction {
 
                     Data.register(newUser)
                         .then(function(res) {
+                            toastr.success('Succesfully registered')
                             context.redirect('#/login')
                         }).catch(function(err) {
                             var error = JSON.parse(err.responseText)
-                            alert(error.description)
+                            toastr.error(error.description) 
                         })
 
                 })
@@ -75,12 +77,13 @@ class UserAction {
                             localStorage.setItem('authKey', success._kmd.authtoken);
                         })
                         .then(function() {
+                            toastr.success('Welcome, ' + localStorage.getItem('username') + '!')
                             context.redirect('#/')
-                            console.log(localStorage)
+                          //  console.log(localStorage)
                         })
                         .catch(function(err) {
                             var error = JSON.parse(err.responseText)
-                            alert(error.description)
+                            toastr.error(error.description)
                         })
 
                 })
@@ -93,7 +96,7 @@ class UserAction {
         localStorage.removeItem('username');
         localStorage.removeItem('userId');
         console.log(localStorage)
-        
+        toastr.success('Succesfully logged out')
         context.redirect('#/')
 
     }
