@@ -100,6 +100,8 @@ class UserAction {
             })
     }
 
+    
+
     logout(context) {
         var promise = new Promise((resolve, reject) => {
             localStorage.removeItem('authKey');
@@ -112,6 +114,11 @@ class UserAction {
             resolve();
         })
         return promise
+    }
+
+    fresh(){
+       Data.getFresh()
+       .then(console.log)
     }
 }
 let userAction = new UserAction();

@@ -7,4 +7,8 @@ const NEWS = {
     key: 'e1abba4c-6002-4f52-8511-2e2a5c3167ac'
 }
 
-export {KINVEY}
+const FMA = {
+    key: '73V9SPTVQ8WCZTQ2'
+}
+
+export {KINVEY, NEWS, FMA}

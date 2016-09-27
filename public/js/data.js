@@ -1,6 +1,7 @@
 
 import {Requester} from 'requester'
 import {KINVEY} from 'constants'
+import 'jquery'
 class Data {
     static register(user) {
         let url = `https://baas.kinvey.com/user/${KINVEY.appId}/`;
@@ -39,7 +40,7 @@ class Data {
     }
 
     static getNews(){
-        let url = 'http://content.guardianapis.com/search?order-by=newest&show-elements=all&page-size=20&q=music&api-key=e1abba4c-6002-4f52-8511-2e2a5c3167ac';
+        let url = 'http://content.guardianapis.com/search?show-elements=all&page-size=20&q=music&api-key=e1abba4c-6002-4f52-8511-2e2a5c3167ac';
         return Requester.get(url);
     }
 
@@ -52,6 +53,12 @@ class Data {
         }
 
         return username;
+    }
+
+    static getFresh(){
+        let url = 'https://freemusicarchive.org/recent.json';
+        
+        
     }
 }
 export {Data};
