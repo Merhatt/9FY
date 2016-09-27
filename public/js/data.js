@@ -14,7 +14,8 @@ class Data {
         let userToBeRegistered = {
             username: user.username,
             password: user.password,
-            email: user.email
+            email: user.email,
+            favs: user.favs
         }
         return Requester.post(url, {
             headers: headers,
@@ -35,6 +36,11 @@ class Data {
             headers: headers,
             data: user
         })
+    }
+
+    static getNews(){
+        let url = 'http://content.guardianapis.com/search?order-by=newest&show-elements=all&page-size=20&q=music&api-key=e1abba4c-6002-4f52-8511-2e2a5c3167ac';
+        return Requester.get(url);
     }
 
 

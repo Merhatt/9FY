@@ -22,7 +22,7 @@ function send(method, url, options) {
             }
 
         })
-        console.log(options);
+        
 
     })
 

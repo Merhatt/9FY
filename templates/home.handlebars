@@ -5,7 +5,34 @@
                 <div class="col-lg-12 text-center">
                     <h2>One good thing about music, when it hits you, you feel no pain.</h2>
                     <p class="lead">Join the 9fy community, <a  href="#/login">Sign In</a> for free.</p>
+                    <h3>Music news</h3>
+                    {{#each results}}
+                   <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-newspaper-o fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">Publication date: {{webPublicationDate}}</div>                                   
+                                </div>
+                                <div class="col-xs-9 text-left">                                   
+                                   <h4>{{webTitle}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{webUrl}}" target= "_blank">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                    {{/each}}
                 </div>
             </div>
         </div>
     </section>
+    
+ 
