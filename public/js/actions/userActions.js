@@ -152,12 +152,34 @@ class UserAction {
             });
     }
 
+
+    hot() {
+        templateGetter.get('musicPage')
+            .then((template) => {
+                FreeMusicArchive.getHot()
+                    .then((data) => {
+                        content.html(template(data));
+                        $('.song').on('click', (ev) => {
+                            let target = $(ev.target);
+                            let section = 'hot';
+                            while (!target.attr('data-id')) {
+                                target = target.parent();
+                            }
+                            window.location = window.location.origin + '/#/' + section + '/' + target.attr('data-id');
+                        });
+                    });
+            });
+    }
+
     song(id, section) {
         if (section === 'fresh') {
             FreeMusicArchive.getFresh()
                 .then(x => displayImg(x.songs[+id]));
-        } else {
+        } else if (section === 'trending') {
             FreeMusicArchive.getTrending()
+                .then(x => displayImg(x.songs[+id]));
+        } else if (section === 'hot') {
+            FreeMusicArchive.getHot()
                 .then(x => displayImg(x.songs[+id]));
         }
     }

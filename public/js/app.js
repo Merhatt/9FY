@@ -18,6 +18,10 @@ var sammyApp = new Sammy(content, function() {
     this.get('#/trending/:id', function() {
         userAction.song(this.params.id, 'trending');
     });
+    this.get('#/hot', userAction.hot);
+    this.get('#/hot/:id', function() {
+        userAction.song(this.params.id, 'hot');
+    });
 });
 
 
