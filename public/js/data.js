@@ -1,6 +1,8 @@
 import { Requester } from 'requester'
 import { KINVEY } from 'constants'
 import 'jquery'
+import {Validator} from 'validator'
+
 class Data {
     static register(user) {
         let url = `https://baas.kinvey.com/user/${KINVEY.appId}/`;
