@@ -14,7 +14,8 @@ SystemJS.config({
         'requester': '/public/js/utils/requester.js',
         'constants': '/constants.js',
         'data': '/public/js/data.js',
-        'toastr': '/public/bower_components/toastr/toastr.js'
+        'toastr': '/public/bower_components/toastr/toastr.js',
+        'validator': '/public/js/utils/validator.js'
     }
 });
 
