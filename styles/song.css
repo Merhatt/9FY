@@ -1,0 +1,63 @@
+.songs,
+songs * {
+    margin: 0;
+    padding: 0;
+}
+
+.songs .song {
+    width: 300px;
+    height: 330px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    float: left;
+    cursor: pointer;
+}
+
+.song .song-img {
+    width: 300px;
+    height: 300px;
+}
+
+.song .song-bottom {
+    width: 300px;
+    height: 30px;
+    background-color: black;
+    padding-top: 5px;
+    padding-left: 10px;
+    opacity: 0.6;
+}
+
+.song-bottom .start-button-img {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+
+.song-bottom .track-title {
+    color: white;
+    font-weight: bold;
+}
+
+.song-page .main-img {
+    width: 400px;
+    height: 400px;
+    display: block;
+    float: left;
+}
+
+.song-page .music-place {
+    width: 400px;
+    background-color: black;
+}
+
+.song-page .author-content {
+    float: left;
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+.song-page .clearfix {
+    clear: both;
+}

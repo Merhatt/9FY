@@ -1,0 +1,12 @@
+<div class="songs">
+    <h1 class="text-center">{{title}}</h1>
+{{#each songs}}
+    <div class="song" data-id="{{@index}}">
+        <img class="song-img" src="{{track_image_file}}" alt="Failed">
+        <div class="song-bottom">
+            <span class="track-title">{{track_title}}</span>
+            <img class="start-button-img" src="./images/StartButton.png">
+        </div> 
+    </div>
+{{/each}}
+</div>

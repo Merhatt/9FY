@@ -1,15 +1,41 @@
 import { FMA } from 'constants';
 
+function setDomainName(url, domainToSet) {
+    if (url.indexOf('http') < 0) {
+        url = domainToSet + url;
+    }
+
+    return url;
+}
+
+function setStrLength(str, length) {
+    if (str.length >= length) {
+        str = str.slice(0, length) + '...';
+    }
+
+    return str;
+}
+
 class FreeMusicArchive {
-    static featuredPlaylist() {
+    static getTrending() {
         return new Promise((resolve, reject) => {
             let url = 'https://freemusicarchive.org/featured.json';
-
             $.ajax({
                 type: 'GET',
                 url: url,
                 success: function(data) {
-                    resolve(JSON.parse(data));
+                    let parsedData = JSON.parse(data);
+                    let finalData = {
+                        title: 'Trending',
+                        songs: parsedData.aTracks
+                    };
+
+                    for (let i = 0; i < finalData.songs.length; i += 1) {
+                        finalData.songs[i].track_image_file = setDomainName(finalData.songs[i].track_image_file, 'https://freemusicarchive.org/file/');
+                        finalData.songs[i].track_title = setStrLength(finalData.songs[i].track_title, 29);
+                    }
+
+                    resolve(finalData);
                 },
                 error: function(err) {
                     reject(err);
@@ -18,7 +44,7 @@ class FreeMusicArchive {
         });
     }
 
-    static freshMusic() {
+    static getFresh() {
         return new Promise((resolve, reject) => {
             let url = 'https://freemusicarchive.org/recent.json';
 
@@ -26,7 +52,18 @@ class FreeMusicArchive {
                 type: 'GET',
                 url: url,
                 success: function(data) {
-                    resolve(JSON.parse(data));
+                    let parsedData = JSON.parse(data);
+                    let finalData = {
+                        title: 'Fresh',
+                        songs: parsedData.aTracks
+                    };
+
+                    for (let i = 0; i < finalData.songs.length; i += 1) {
+                        finalData.songs[i].track_image_file = setDomainName(finalData.songs[i].track_image_file, 'https://freemusicarchive.org/file/');
+                        finalData.songs[i].track_title = setStrLength(finalData.songs[i].track_title, 29);
+                    }
+
+                    resolve(finalData);
                 },
                 error: function(err) {
                     reject(err);

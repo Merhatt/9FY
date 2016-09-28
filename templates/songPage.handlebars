@@ -1,0 +1,14 @@
+<div class="song-page">
+    <h1 class="text-center">{{track_title}}</h1>
+    <img class="main-img" src="{{track_image_file}}" alt="error">
+    <div class="author-content">
+        <div>Artist: {{#if artist_name}}{{artist_name}}{{else}}Unknown{{/if}}</div>
+        <div>Album: {{#if album_title}}{{album_title}}{{else}}Not in album{{/if}}</div>
+        <div>Title: {{track_title}}</div>
+    </div>
+    <div class="clearfix"></div>
+    <audio controls class="music-place">
+        <source src="{{track_file_url}}" type="audio/mp3">
+    Your browser does not support the audio element.
+    </audio>
+</div>
