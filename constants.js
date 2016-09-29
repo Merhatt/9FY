@@ -1,6 +1,7 @@
 const KINVEY = {
     appId: 'kid_Byf3Gafa',
-    appSecret: '27832e317d304133ad99deae310d0ab3'
+    appSecret: '27832e317d304133ad99deae310d0ab3',
+    appMaster: '4c0f61e3fd6e414c9155a86264506929'
 }
 
 const NEWS = {

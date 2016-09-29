@@ -53,5 +53,44 @@ class Data {
 
         return username;
     }
+
+    static getUserData() {
+            var userId = localStorage.getItem('userId');
+            let url = `https://baas.kinvey.com/user/${KINVEY.appId}/${userId}`;
+            let authorization = btoa(`${KINVEY.appId}:${KINVEY.appMaster}`);
+            console.log(url)
+
+            let headers = {
+                'Authorization': `Basic ${authorization}`,
+                'ContentType': 'application/json'
+            };
+         return   Requester.get(url,{
+                headers
+            })
+        
+    }
+
+    static addFavorites(songs){
+         var userId = localStorage.userId;
+            let url = `https://baas.kinvey.com/user/${KINVEY.appId}/${userId}`;
+            let authorization = btoa(`${KINVEY.appId}:${KINVEY.appMaster}`);
+
+            let headers = {
+                'Authorization': `Basic ${authorization}`,
+                'ContentType': 'application/json'
+            };
+
+            let data = {
+                favs: songs
+            }
+
+            return Requester.put(url,{
+                headers,
+                data
+            });
+
+    }
+
+   
 }
 export { Data };

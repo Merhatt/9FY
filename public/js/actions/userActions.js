@@ -11,12 +11,12 @@ class UserAction {
     home(context) {
         if (Data.getCurrentUser()) {
             templateGetter.get('loggedUser')
-                .then(function(template) {
+                .then(function (template) {
                     userDropdown.html(template(localStorage))
                 })
         } else {
             templateGetter.get('loggedOut')
-                .then(function(template) {
+                .then(function (template) {
                     userDropdown.html(template)
                 })
         }
@@ -24,25 +24,28 @@ class UserAction {
         var news;
         var temp;
         Data.getNews()
-            .then(function(res) {
+            .then(function (res) {
                 news = res.response;
                 //console.log(news.response)
             })
-            .then(function() {
+            .then(function () {
                 return templateGetter.get('home')
 
-            }).then(function(template) {
+            }).then(function (template) {
                 content.html(template(news))
+
             })
+
+
     }
 
     register(context) {
         templateGetter.get('register')
-            .then(function(template) {
+            .then(function (template) {
                 content.html(template);
             })
-            .then(function() {
-                $('#btn-signup').on('click', function() {
+            .then(function () {
+                $('#btn-signup').on('click', function () {
                     let username = $('#reg-username').val();
                     let password = $('#reg-password').val();
                     let email = $('#reg-email').val();
@@ -51,10 +54,10 @@ class UserAction {
                     let newUser = { username, password, email, favs };
 
                     Data.register(newUser)
-                        .then(function(res) {
+                        .then(function (res) {
                             toastr.success('Succesfully registered')
                             context.redirect('#/login')
-                        }).catch(function(err) {
+                        }).catch(function (err) {
                             var error = JSON.parse(err.responseText)
                             toastr.error(error.description)
                         })
@@ -70,28 +73,28 @@ class UserAction {
         }
 
         templateGetter.get('login')
-            .then(function(template) {
+            .then(function (template) {
                 content.html(template);
             })
-            .then(function() {
-                $('#btn-login').on('click', function() {
+            .then(function () {
+                $('#btn-login').on('click', function () {
                     let username = $('#login-username').val();
                     let password = $('#login-password').val();
                     let logUser = { username: username, password: password };
 
                     Data.login(logUser)
-                        .then(function(success) {
+                        .then(function (success) {
                             console.log(success)
                             localStorage.setItem('username', success.username);
                             localStorage.setItem('userId', success._id);
                             localStorage.setItem('authKey', success._kmd.authtoken);
                         })
-                        .then(function() {
+                        .then(function () {
                             toastr.success('Welcome, ' + localStorage.getItem('username') + '!')
                             context.redirect('#/')
-                                //  console.log(localStorage)
+                            //  console.log(localStorage)
                         })
-                        .catch(function(err) {
+                        .catch(function (err) {
                             var error = JSON.parse(err.responseText)
                             toastr.error(error.description)
                         })
@@ -171,24 +174,82 @@ class UserAction {
             });
     }
 
+
     song(id, section) {
         if (section === 'fresh') {
             FreeMusicArchive.getFresh()
-                .then(x => displayImg(x.songs[+id]));
+                .then(x => {
+                    displayImg(x.songs[+id])
+                });
+
         } else if (section === 'trending') {
             FreeMusicArchive.getTrending()
-                .then(x => displayImg(x.songs[+id]));
+                .then(x => {
+                    displayImg(x.songs[+id])
+
+                });
         } else if (section === 'hot') {
             FreeMusicArchive.getHot()
-                .then(x => displayImg(x.songs[+id]));
+                .then(x => {
+                    displayImg(x.songs[+id])
+                });
         }
     }
+
+    favorites() {
+        Data.getUserData()
+            .then(res => {
+                templateGetter.get('favorites')
+                 .then((template) => {
+                     console.log(res.favs)
+                        content.html(template(res.favs));                       
+                    });
+            });
+
+           
+    }
+
+
+
+
 }
 
 function displayImg(img) {
     templateGetter.get('songPage')
         .then(template => {
             content.html(template(img));
+
+            $('#btn-like').on('click', function () {
+
+                if (!Data.getCurrentUser()) {
+                    toastr.error('You have to be logged in to like a song!')
+                    window.location = window.location.origin + '#/login';
+                    return;
+                }
+
+                console.log('tuk')
+                let favSongs = [];
+                let alreadyAdded = false;
+                Data.getUserData()
+                    .then(res => {
+                        (res.favs).forEach(function (song) {
+                            if (img.track_title === song.track_title) {
+                                alreadyAdded = true
+                                return
+                            }
+
+                            favSongs.push(song);
+                        });
+
+                        if (alreadyAdded) {
+                            toastr.error('Song already added!')
+                        } else {
+                            favSongs.push(img);
+                            Data.addFavorites(favSongs).then(x => toastr.success('Song added!'))
+                        }
+
+                    })
+            })
         });
 }
 
