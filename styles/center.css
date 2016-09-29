@@ -16,3 +16,9 @@
     padding-top: 10%;
     margin: auto;
 }
+
+.fb-like{
+    position: absolute;
+    top: 10%;
+    left: 80%;
+}

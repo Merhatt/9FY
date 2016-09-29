@@ -61,9 +61,23 @@
             </div>
         </div>
     </header>
+    <div class="fb-like" data-href="https://www.facebook.com/9fy-342294662778084/?fref=ts" data-width="200" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+
     <div id="content" class="vcenter"></div>
     <script src="./node_modules/systemjs/dist/system.js"></script>
     <script src="./systemjs-config.js"></script>
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/bg_BG/sdk.js#xfbml=1&version=v2.7";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 </body>
 
 </html>
