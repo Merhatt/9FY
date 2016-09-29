@@ -1,25 +1,24 @@
+import toastr from 'toastr';
 class Validator {
     static validateUser(user){
-        if (typeof user !== 'string') {
-            throw new Error('User must be a text!');
-        }
-        if (typeof user === undefined) {
-            throw new Error('Must be a some text!');
-        }
-        if (!user) {
-            throw new Error('It must be a not empty text!');
-        }
-        if (user.length < 3 || user.length > 20) {
-            throw new Error('Username must be between 3 and 20 characters!');
+        var re =  /^[a-zA-Z ]{2,30}$/;
+        if (!(re.test(user))) {
+            toastr.error('Invalid username!');
         }
     }
     static validatePassword(password){
-        if (typeof password === undefined) {
-            throw new Error('You must write your password!');
-        }
-        if (!password) {
-            throw new Error('You must write your password!');
+        var re = /^[A-Za-z]\w{6,15}$/;
+        if (!(re.test(password))) {
+            toastr.error('Invalid password!');
         }
     }
+    static validateEmail(email){
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+     //anystring@anystring.anystring' -> true, 'name@again@example.com' -> false
+        if (!(re.test(email))) {
+            toastr.error('Invalid email!');
+        }
+    }
+    
 }
 export { Validator };
