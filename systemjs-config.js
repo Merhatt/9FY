@@ -15,7 +15,8 @@ SystemJS.config({
         'constants': '/constants.js',
         'data': '/public/js/data.js',
         'toastr': '/public/bower_components/toastr/toastr.js',
-        'validator': '/public/js/utils/validator.js'
+        'validator': '/public/js/utils/validator.js',
+        'cleaner': './public/js/utils/clearInputs.js'
     }
 });
 

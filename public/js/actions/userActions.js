@@ -4,6 +4,8 @@ import { templateGetter } from 'getTemplates'
 import { Data } from 'data';
 import toastr from 'toastr';
 import { FreeMusicArchive } from 'FreeMusicArchive';
+import {Validator} from 'validator';
+import {Cleaner} from 'cleaner'
 
 const content = $('#content');
 const userDropdown = $('#user-dropdown')
@@ -48,8 +50,37 @@ class UserAction {
                 $('#btn-signup').on('click', function () {
                     let username = $('#reg-username').val();
                     let password = $('#reg-password').val();
+                    let repPassowrd = $('#repeat-password').val();
                     let email = $('#reg-email').val();
                     let favs = [];
+
+
+                   if(!Validator.validateUser(username)){
+                       toastr.error('Username is not in the correct format!');
+                       Cleaner.cleanInputs( $('#reg-username'))
+                       return;                       
+                   }
+
+                   if(!Validator.validatePassword(password)){
+                        toastr.error('Password is not in the correct format!');
+                       Cleaner.cleanInputs($('#reg-password'), $('#repeat-password'))
+                       return;    
+                   }
+
+                   if(!Validator.validateEmail(email)){
+                         toastr.error('E-mail is not valid!');
+                       Cleaner.cleanInputs($('#reg-email'))
+                       return;    
+                   }
+
+                   
+                   if(password != repPassowrd){
+                       toastr.error('Passowords do not match');
+                       Cleaner.cleanInputs( $('#reg-password'), $('#repeat-password'))
+                       return;
+                   }
+
+
 
                     let newUser = { username, password, email, favs };
 
