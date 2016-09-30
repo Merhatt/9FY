@@ -7,7 +7,7 @@ SystemJS.config({
         'jquery': '/public/bower_components/jquery/dist/jquery.js',
         'sammy': '/public/bower_components/sammy/lib/sammy.js',
         'handlebars': '/public/bower_components/handlebars/handlebars.js',
-        'main': '/public/js/app.js',
+        'main': '/public/js/sammyApp.js',
         'getTemplates': '/public/js/utils/getTemplates.js',
         'userActions': '/public/js/actions/userActions.js',
         'FreeMusicArchive': '/public/js/FMA-api/FMA-api.js',
