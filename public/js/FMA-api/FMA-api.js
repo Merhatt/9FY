@@ -16,6 +16,17 @@ function setStrLength(str, length) {
     return str;
 }
 
+function getSongId(text) {
+    do {
+        text = text.split('(');
+        text = text[1];
+    } while (text.indexOf('(') >= '0');
+
+    let songId = text.split(')')[0];
+
+    return songId;
+}
+
 class FreeMusicArchive {
     static getHot() {
         return new Promise((resolve, reject) => {
@@ -100,7 +111,7 @@ class FreeMusicArchive {
         });
     }
 
-    static searchArtistByName(name, maxResultCount) {
+    static search(name, maxResultCount) {
         return new Promise((resolve, reject) => {
             let url = 'https://freemusicarchive.org/api/trackSearch?q=' + name + '&limit=' + maxResultCount;
 
@@ -108,7 +119,52 @@ class FreeMusicArchive {
                 type: 'GET',
                 url: url,
                 success: function(data) {
-                    resolve(JSON.parse(data));
+                    data = JSON.parse(data);
+                    let result = {
+                        title: name,
+                        songs: []
+                    };
+
+                    let promiseArray = [];
+
+                    for (let i = 0; i < data.aRows.length; i += 1) {
+                        let songId = getSongId(data.aRows[i]);
+
+                        promiseArray.push(FreeMusicArchive.getSongBySongId(songId));
+                    }
+
+                    Promise.all(promiseArray)
+                        .then((res) => {
+                            res.forEach(s => {
+                                if (s && s.track_image_file !== 'https://freemusicarchive.org/file/') {
+                                    result.songs.push(s);
+                                }
+                            });
+                            resolve(result);
+                        });
+                },
+                error: function(err) {
+                    reject(err);
+                }
+            });
+        });
+    }
+
+    static getSongBySongId(id) {
+        return new Promise((resolve, reject) => {
+            let url = 'https://freemusicarchive.org/api/get/tracks.json?api_key=' + FMA.key + '&track_id=' + id;
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function(data) {
+                    let song = JSON.parse(data).dataset[0];
+                    if (song) {
+                        song.track_image_file = setDomainName(song.track_image_file, 'https://freemusicarchive.org/file/');
+                        song.track_title = setStrLength(song.track_title, 29);
+                    }
+
+                    resolve(song);
                 },
                 error: function(err) {
                     reject(err);

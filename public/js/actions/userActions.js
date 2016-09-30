@@ -1,11 +1,11 @@
 /// <reference path="../../../jquery.d.ts"/>
-import 'jquery'
-import { templateGetter } from 'getTemplates'
+import 'jquery';
+import { templateGetter } from 'getTemplates';
 import { Data } from 'data';
 import toastr from 'toastr';
 import { FreeMusicArchive } from 'FreeMusicArchive';
-import {Validator} from 'validator';
-import {Cleaner} from 'cleaner'
+import { Validator } from 'validator';
+import { Cleaner } from 'cleaner';
 
 const content = $('#content');
 const userDropdown = $('#user-dropdown')
@@ -13,12 +13,12 @@ class UserAction {
     home(context) {
         if (Data.getCurrentUser()) {
             templateGetter.get('loggedUser')
-                .then(function (template) {
+                .then(function(template) {
                     userDropdown.html(template(localStorage))
                 })
         } else {
             templateGetter.get('loggedOut')
-                .then(function (template) {
+                .then(function(template) {
                     userDropdown.html(template)
                 })
         }
@@ -26,28 +26,28 @@ class UserAction {
         var news;
         var temp;
         Data.getNews()
-            .then(function (res) {
+            .then(function(res) {
                 news = res.response;
                 //console.log(news.response)
             })
-            .then(function () {
+            .then(function() {
                 return templateGetter.get('home')
 
-            }).then(function (template) {
+            }).then(function(template) {
                 content.html(template(news))
 
-            })
+            });
 
 
     }
 
     register(context) {
         templateGetter.get('register')
-            .then(function (template) {
+            .then(function(template) {
                 content.html(template);
             })
-            .then(function () {
-                $('#btn-signup').on('click', function () {
+            .then(function() {
+                $('#btn-signup').on('click', function() {
                     let username = $('#reg-username').val();
                     let password = $('#reg-password').val();
                     let repPassowrd = $('#repeat-password').val();
@@ -55,40 +55,40 @@ class UserAction {
                     let favs = [];
 
 
-                   if(!Validator.validateUser(username)){
-                       toastr.error('Username is not in the correct format!');
-                       Cleaner.cleanInputs( $('#reg-username'))
-                       return;                       
-                   }
+                    if (!Validator.validateUser(username)) {
+                        toastr.error('Username is not in the correct format!');
+                        Cleaner.cleanInputs($('#reg-username'))
+                        return;
+                    }
 
-                   if(!Validator.validatePassword(password)){
+                    if (!Validator.validatePassword(password)) {
                         toastr.error('Password is not in the correct format!');
-                       Cleaner.cleanInputs($('#reg-password'), $('#repeat-password'))
-                       return;    
-                   }
+                        Cleaner.cleanInputs($('#reg-password'), $('#repeat-password'))
+                        return;
+                    }
 
-                   if(!Validator.validateEmail(email)){
-                         toastr.error('E-mail is not valid!');
-                       Cleaner.cleanInputs($('#reg-email'))
-                       return;    
-                   }
+                    if (!Validator.validateEmail(email)) {
+                        toastr.error('E-mail is not valid!');
+                        Cleaner.cleanInputs($('#reg-email'))
+                        return;
+                    }
 
-                   
-                   if(password != repPassowrd){
-                       toastr.error('Passowords do not match');
-                       Cleaner.cleanInputs( $('#reg-password'), $('#repeat-password'))
-                       return;
-                   }
+
+                    if (password != repPassowrd) {
+                        toastr.error('Passowords do not match');
+                        Cleaner.cleanInputs($('#reg-password'), $('#repeat-password'))
+                        return;
+                    }
 
 
 
                     let newUser = { username, password, email, favs };
 
                     Data.register(newUser)
-                        .then(function (res) {
+                        .then(function(res) {
                             toastr.success('Succesfully registered')
                             context.redirect('#/login')
-                        }).catch(function (err) {
+                        }).catch(function(err) {
                             var error = JSON.parse(err.responseText)
                             toastr.error(error.description)
                         })
@@ -104,28 +104,28 @@ class UserAction {
         }
 
         templateGetter.get('login')
-            .then(function (template) {
+            .then(function(template) {
                 content.html(template);
             })
-            .then(function () {
-                $('#btn-login').on('click', function () {
+            .then(function() {
+                $('#btn-login').on('click', function() {
                     let username = $('#login-username').val();
                     let password = $('#login-password').val();
                     let logUser = { username: username, password: password };
 
                     Data.login(logUser)
-                        .then(function (success) {
+                        .then(function(success) {
                             console.log(success)
                             localStorage.setItem('username', success.username);
                             localStorage.setItem('userId', success._id);
                             localStorage.setItem('authKey', success._kmd.authtoken);
                         })
-                        .then(function () {
+                        .then(function() {
                             toastr.success('Welcome, ' + localStorage.getItem('username') + '!')
                             context.redirect('#/')
-                            //  console.log(localStorage)
+                                //  console.log(localStorage)
                         })
-                        .catch(function (err) {
+                        .catch(function(err) {
                             var error = JSON.parse(err.responseText)
                             toastr.error(error.description)
                         })
@@ -206,23 +206,28 @@ class UserAction {
     }
 
 
-    song(id, section) {
+    song(id, section, content) {
         if (section === 'fresh') {
             FreeMusicArchive.getFresh()
                 .then(x => {
-                    displayImg(x.songs[+id])
+                    displayImg(x.songs[+id]);
                 });
 
         } else if (section === 'trending') {
             FreeMusicArchive.getTrending()
                 .then(x => {
-                    displayImg(x.songs[+id])
+                    displayImg(x.songs[+id]);
 
                 });
         } else if (section === 'hot') {
             FreeMusicArchive.getHot()
                 .then(x => {
-                    displayImg(x.songs[+id])
+                    displayImg(x.songs[+id]);
+                });
+        } else if (section === 'search') {
+            FreeMusicArchive.search(content, 10)
+                .then(x => {
+                    displayImg(x.songs[+id]);
                 });
         }
     }
@@ -235,7 +240,7 @@ class UserAction {
 
                         content.html(template(res.favs));
 
-                        $('#btn-remove').on('click', function (ev) {
+                        $('#btn-remove').on('click', function(ev) {
 
                             var title = ev.target.getAttribute('data-track');
                             var favs;
@@ -247,20 +252,35 @@ class UserAction {
                                     res.favs.splice(index, 1);
                                     favs = JSON.parse(JSON.stringify(res.favs))
                                     Data.addFavorites(favs).then(x => toastr.success('Song removed from favorites!'))
-                               
-                                })
 
-                                $(ev.target).parents('.song-page')[0].remove();
+                                });
+
+                            $(ev.target).parents('.song-page')[0].remove();
                         })
                     });
             });
-
-
     }
 
+    search() {
+        let searchItem = this.params.content;
+        templateGetter.get('musicPage')
+            .then((template) => {
+                FreeMusicArchive.search(searchItem, 10)
+                    .then((data) => {
+                        console.log(data);
+                        content.html(template(data));
+                        $('.song').on('click', (ev) => {
+                            let target = $(ev.target);
+                            let section = 'search';
+                            while (!target.attr('data-id')) {
+                                target = target.parent();
+                            }
 
-
-
+                            window.location = window.location.origin + '/#/' + section + '/' + searchItem + '/' + target.attr('data-id');
+                        });
+                    });
+            });
+    }
 }
 
 function displayImg(img) {
@@ -268,10 +288,10 @@ function displayImg(img) {
         .then(template => {
             content.html(template(img));
 
-            $('#btn-like').on('click', function () {
+            $('#btn-like').on('click', function() {
 
                 if (!Data.getCurrentUser()) {
-                    toastr.error('You have to be logged in to like a song!')
+                    toastr.error('You have to be logged in to like a song!');
                     window.location = window.location.origin + '#/login';
                     return;
                 }
@@ -281,7 +301,7 @@ function displayImg(img) {
                 let alreadyAdded = false;
                 Data.getUserData()
                     .then(res => {
-                        (res.favs).forEach(function (song) {
+                        (res.favs).forEach(function(song) {
                             if (img.track_title === song.track_title) {
                                 alreadyAdded = true
                                 return
@@ -297,8 +317,8 @@ function displayImg(img) {
                             Data.addFavorites(favSongs).then(x => toastr.success('Song added to favorites!'))
                         }
 
-                    })
-            })
+                    });
+            });
         });
 }
 

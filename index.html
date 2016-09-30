@@ -11,6 +11,7 @@
 
     <script src="./public/bower_components/jquery/dist/jquery.js"></script>
     <script src="./public/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
     <style>
         body {
             background: url(images/bg.jpg) no-repeat center center fixed;
@@ -43,7 +44,7 @@
 
                     </li>
                     <li>
-                        <input type="text" class="form-control input-lg" placeholder="Search...">
+                        <input id="search" type="text" class="form-control input-lg" placeholder="Search...">
                     </li>
 
                 </ul>
@@ -65,8 +66,9 @@
     <div id="content" class="vcenter"></div>
     <script src="./node_modules/systemjs/dist/system.js"></script>
     <script src="./systemjs-config.js"></script>
+    <script src="./public/js/actions/eventActions.js"></script>
     <div id="fb-root"></div>
-    <script> 
+    <script>
         (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
