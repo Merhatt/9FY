@@ -1,11 +1,14 @@
 {{#this}}
-<div class="song-page">
+<div class="song-page" >
     <h1 class="text-center">{{this.track_title}}</h1>
     <img class="main-img" src="{{this.track_image_file}}" alt="error">
     <div class="author-content">
         <div>Artist: {{#if artist_name}}{{artist_name}}{{else}}Unknown{{/if}}</div>
         <div>Album: {{#if album_title}}{{album_title}}{{else}}Not in album{{/if}}</div>
-        <div>Title: {{track_title}}</div>       
+        <div>Title: {{track_title}}</div>
+            <button data-track = "{{track_title}}" id="btn-remove" type="button" class="btn btn-outline-primary btn-lg">
+  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+</button>       
     </div>
     <div class="clearfix"></div>
     <audio controls class="music-place">

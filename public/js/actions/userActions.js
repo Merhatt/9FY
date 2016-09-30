@@ -200,13 +200,31 @@ class UserAction {
         Data.getUserData()
             .then(res => {
                 templateGetter.get('favorites')
-                 .then((template) => {
-                     console.log(res.favs)
-                        content.html(template(res.favs));                       
+                    .then((template) => {
+
+                        content.html(template(res.favs));
+
+                        $('#btn-remove').on('click', function (ev) {
+
+                            var title = ev.target.getAttribute('data-track');
+                            var favs;
+
+                            Data.getUserData()
+                                .then(res => {
+                                    var elementToRemove = res.favs.find(x => x.track_title === title);
+                                    var index = res.favs.indexOf(elementToRemove);
+                                    res.favs.splice(index, 1);
+                                    favs = JSON.parse(JSON.stringify(res.favs))
+                                    Data.addFavorites(favs).then(x => toastr.success('Song removed from favorites!'))
+                               
+                                })
+
+                                $(ev.target).parents('.song-page')[0].remove();
+                        })
                     });
             });
 
-           
+
     }
 
 
@@ -227,7 +245,7 @@ function displayImg(img) {
                     return;
                 }
 
-                console.log('tuk')
+
                 let favSongs = [];
                 let alreadyAdded = false;
                 Data.getUserData()
@@ -245,7 +263,7 @@ function displayImg(img) {
                             toastr.error('Song already added!')
                         } else {
                             favSongs.push(img);
-                            Data.addFavorites(favSongs).then(x => toastr.success('Song added!'))
+                            Data.addFavorites(favSongs).then(x => toastr.success('Song added to favorites!'))
                         }
 
                     })
