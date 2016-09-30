@@ -11,7 +11,7 @@
     </div>
     <div class="clearfix"></div>
     <audio controls class="music-place">
-        <source src="{{track_file_url}}" type="audio/mp3">
+        <source src="{{#if track_file_url}}{{track_file_url}}{{else}}{{track_file}}{{/if}}" type="audio/mp3">
     Your browser does not support the audio element.
     </audio>
 </div>

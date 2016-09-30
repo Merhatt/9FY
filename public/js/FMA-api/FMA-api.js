@@ -162,6 +162,7 @@ class FreeMusicArchive {
                     if (song) {
                         song.track_image_file = setDomainName(song.track_image_file, 'https://freemusicarchive.org/file/');
                         song.track_title = setStrLength(song.track_title, 29);
+                        song.track_file = setDomainName(song.track_file, 'https://freemusicarchive.org/file/');
                     }
 
                     resolve(song);
