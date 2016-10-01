@@ -396,6 +396,91 @@ describe('Integration Tests', function () {
                 })
                 .then(done,done)
             });
+
+              it('Should return object with result and music properties', function (done) {
+                FreeMusicArchive.getFresh()
+                .then(x=> {
+                    var allKeys = Object.keys(x)
+                    var expected = ['title', 'songs']
+                    expect(allKeys).to.be.eql(expected)
+                })
+                .then(done,done)
+            });
+            
+        });
+
+         describe('FreeMusicArchive.getHot tests', function () {
+            
+            it('Should return object from the api', function (done) {
+                FreeMusicArchive.getHot()
+                .then(x=> {
+                    expect(x).to.be.a('object')
+                })
+                .then(done,done)
+            });
+
+              it('Should return object with result and music properties', function (done) {
+                FreeMusicArchive.getHot()
+                .then(x=> {
+                    var allKeys = Object.keys(x)
+                    var expected = ['title', 'songs']
+                    expect(allKeys).to.be.eql(expected)
+                })
+                .then(done,done)
+            });
+            
+        });
+
+         describe('FreeMusicArchive.getTrending tests', function () {
+            
+            it('Should return object from the api', function (done) {
+                FreeMusicArchive.getTrending()
+                .then(x=> {
+                    expect(x).to.be.a('object')
+                })
+                .then(done,done)
+            });
+
+              it('Should return object with result and music properties', function (done) {
+                FreeMusicArchive.getTrending()
+                .then(x=> {
+                    var allKeys = Object.keys(x)
+                    var expected = ['title', 'songs']
+                    expect(allKeys).to.be.eql(expected)
+                })
+                .then(done,done)
+            });
+            
+        });
+
+        describe('FreeMusicArchive.getSongBySongId tests', function () {
+            
+            it('Should return object from the api when id is valid', function (done) {
+                FreeMusicArchive.getSongBySongId(7173)
+                .then(x=> {
+                    expect(x).to.be.a('object')
+                })
+                .then(done,done)
+            });
+
+              it('Should return object with result and music properties', function (done) {
+                FreeMusicArchive.getTrending(7173)
+                .then(x=> {
+                    var allKeys = Object.keys(x)
+                    var expected = ['title', 'songs']
+                    expect(allKeys).to.be.eql(expected)
+                })
+                .then(done,done)
+            });
+
+             it('Should return undefined when id is invalid', function (done) {
+                FreeMusicArchive.getTrending()
+                .then(x=> {
+                   
+                    expect(x).to.be.eql('undefined')
+                })
+                .then(done,done)
+            });
             
         });
         
