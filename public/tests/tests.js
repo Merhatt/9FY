@@ -1,5 +1,6 @@
 import {Data} from 'data';
-import {Requester} from 'requester'
+import {Requester} from 'requester';
+import {FreeMusicArchive} from 'FreeMusicArchive';
 mocha.setup('bdd');
 const expect = chai.expect;
 
@@ -380,5 +381,27 @@ describe('Unit Tests', function () {
         
     })
 });
+
+
+describe('Integration Tests', function () {
+    
+    describe('FreeMusicArchive tests', function () {
+        
+        describe('FreeMusicArchive.getFresh tests', function () {
+            
+            it('Should return object from the api', function (done) {
+                FreeMusicArchive.getFresh()
+                .then(x=> {
+                    expect(x).to.be.a('object')
+                })
+                .then(done,done)
+            });
+            
+        });
+        
+    });
+        
+});
+
 
 mocha.run();
