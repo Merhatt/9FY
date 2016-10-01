@@ -17,7 +17,7 @@ SystemJS.config({
         'toastr': '../../public/bower_components/toastr/toastr.js',
         'validator': '../../public/js/utils/validator.js',
         'cleaner': './public/js/utils/clearInputs.js',
-        'unitTests': './unitTests.js'
+        'unitTests': './tests.js'
     }
 });
 

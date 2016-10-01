@@ -71,7 +71,7 @@ class Data {
     }
 
     static addFavorites(songs){
-         var userId = localStorage.userId;
+         var userId = localStorage.getItem('userId');
             let url = `https://baas.kinvey.com/user/${KINVEY.appId}/${userId}`;
             let authorization = btoa(`${KINVEY.appId}:${KINVEY.appMaster}`);
 
