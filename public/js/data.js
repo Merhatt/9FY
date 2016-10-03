@@ -91,6 +91,15 @@ class Data {
 
     }
 
+    logout() {
+        let url = `https://baas.kinvey.com/user/${KINVEY.appId}/_logout`;
+        let headers = {
+            'Authorization': `Kinvey ${localStorage.authKey}`
+        };
+
+        return requester.post(url, {headers});
+    }
+
    
 }
 export { Data };

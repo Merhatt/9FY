@@ -137,7 +137,8 @@ class UserAction {
 
 
     logout(context) {
-        var promise = new Promise((resolve, reject) => {
+        Data.logout().then(x=> {
+       
             localStorage.removeItem('authKey');
             localStorage.removeItem('username');
             localStorage.removeItem('userId');
@@ -147,7 +148,7 @@ class UserAction {
 
             resolve();
         });
-        return promise;
+       
     }
 
     fresh() {
